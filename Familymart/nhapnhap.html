@@ -1,0 +1,134 @@
+const cart = [];
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const plusButtons = document.querySelectorAll(".quantity-button.plus");
+      const minusButtons = document.querySelectorAll(".quantity-button.minus");
+
+      plusButtons.forEach((button) => {
+        button.addEventListener("click", increaseQuantity);
+      });
+
+      minusButtons.forEach((button) => {
+        button.addEventListener("click", decreaseQuantity);
+      });
+
+      function increaseQuantity(event) {
+        const cartItem = event.target.closest(".cart-item");
+        const productId = cartItem
+          .querySelector(".quantity-button.plus")
+          .getAttribute("data-product");
+        const product = getProductDetails(productId);
+
+        if (product) {
+          increaseCartItemQuantity(product);
+          updateCartDisplay();
+        }
+      }
+
+      function decreaseQuantity(event) {
+        const cartItem = event.target.closest(".cart-item");
+        const productId = cartItem
+          .querySelector(".quantity-button.minus")
+          .getAttribute("data-product");
+        const product = getProductDetails(productId);
+
+        if (product) {
+          decreaseCartItemQuantity(product);
+          updateCartDisplay();
+        }
+      }
+
+      function getProductDetails(productId) {
+        // Lấy thông tin sản phẩm từ mã sản phẩm (productId) hoặc từ dữ liệu đã có.
+        // Ví dụ: bạn có thể sử dụng AJAX để tải thông tin sản phẩm từ máy chủ.
+        // Ở đây, tôi sẽ sử dụng một mảng dữ liệu giả để lấy thông tin sản phẩm.
+        const productsData = [
+          {
+            id: "1",
+            name: "MAXIONS® |DORAEMON HOODIE/ CREAM",
+            price: 200000,
+          },
+          // Thêm thông tin sản phẩm khác ở đây
+        ];
+
+        return productsData.find((product) => product.id === productId);
+      }
+
+      function increaseCartItemQuantity(product) {
+        const existingProduct = cart.find((item) => item.id === product.id);
+
+        if (existingProduct) {
+          existingProduct.quantity++;
+        }
+      }
+
+      function decreaseCartItemQuantity(product) {
+        const existingProduct = cart.find((item) => item.id === product.id);
+
+        if (existingProduct && existingProduct.quantity > 1) {
+          existingProduct.quantity--;
+        }
+      }
+
+      function updateCartDisplay() {
+        // Cập nhật giao diện hiển thị giỏ hàng tại đây.
+        // Bạn có thể sử dụng DOM manipulation để thay đổi nội dung giỏ hàng.
+      }
+    });
+    // Lấy danh sách nút cộng và trừ
+const plusButtons = document.querySelectorAll(".quantity-button.plus");
+const minusButtons = document.querySelectorAll(".quantity-button.minus");
+
+plusButtons.forEach(button => {
+  button.addEventListener("click", increaseQuantity);
+});
+
+minusButtons.forEach(button => {
+  button.addEventListener("click", decreaseQuantity);
+});
+
+function increaseQuantity(event) {
+  const cartItem = event.target.closest(".cart-item");
+  const quantityText = cartItem.querySelector(".quantity-text");
+  let currentQuantity = parseInt(quantityText.textContent);
+  currentQuantity++;
+  quantityText.textContent = currentQuantity;
+}
+
+function decreaseQuantity(event) {
+  const cartItem = event.target.closest(".cart-item");
+  const quantityText = cartItem.querySelector(".quantity-text");
+  let currentQuantity = parseInt(quantityText.textContent);
+  if (currentQuantity > 1) {
+    currentQuantity--;
+    quantityText.textContent = currentQuantity;
+  }
+}
+// Lấy danh sách nút Xóa
+const removeButtons = document.querySelectorAll(".remove-button");
+
+removeButtons.forEach(button => {
+  button.addEventListener("click", removeProduct);
+});
+
+function removeProduct(event) {
+  const productId = event.target.getAttribute("data-product");
+  const cartItem = event.target.closest(".cart-item");
+
+  // Xóa sản phẩm khỏi giỏ hàng dựa trên productId
+  removeFromCart(productId);
+
+  // Xóa sản phẩm khỏi giao diện
+  cartItem.remove();
+
+  // Cập nhật hiển thị tổng tiền hoặc các thông tin khác của giỏ hàng
+  updateCartDisplay();
+}
+
+function removeFromCart(productId) {
+  // Xóa sản phẩm khỏi mảng giỏ hàng dựa trên productId
+  const productIndex = cart.findIndex(item => item.id === productId);
+  if (productIndex !== -1) {
+    cart.splice(productIndex, 1);
+  }
+}
