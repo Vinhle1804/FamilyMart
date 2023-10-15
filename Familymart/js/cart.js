@@ -37,11 +37,10 @@ function renderCart() {
           <td><img src="${cart[i].image}" alt="Product 1"></td>
           <td>${cart[i].name}</td>
           <td>${cart[i].price.toLocaleString()}đ</td>
-          <buton class="quantity-button" onclick="decrementQuantity(${i})">-</button>
-     
+
         
           <td><input type="number" class="quantity" value="${cart[i].quantity} id="quantity${i}" ></td>
-          <button class="quantity-button" onclick="incrementQuantity(${i})">+</button>
+
           <td>${(cart[i].price * cart[i].quantity).toLocaleString()}đ</td>
           <button class="button" onClick="removeCart(${cart[i].id})">removecart</button>
           </tr>
