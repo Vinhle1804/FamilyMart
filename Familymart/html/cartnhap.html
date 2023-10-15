@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;   
+        }
+        body{
+            height: 100%;
+            background: linear-gradient(to right, #4daf54, #3d8880);
+        }
+        .card{
+            margin: 120px auto;
+            width: 320px;
+            height: 400px;
+            background: #272D40;
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            position: relative;
+        }
+        .heart, .cart{
+       font-size: 25px;
+       position: absolute;
+       left: 20px;
+       top: 15px;
+        }
+
+        .cart{
+            left: unset;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heart"><i class='bx bx-heart'></i></div>
+        <div class="cart"><i class='bx bx-cart' ></i></div>
+        <div class="img"></div>
+        <div class="title"></div>
+        <div class="price"></div>
+        <div class="size"></div>
+        <div class="color"></div>
+        <div class="action"></div>
+
+    </div>
+</body>
+</html>
