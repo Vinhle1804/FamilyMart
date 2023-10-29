@@ -1,59 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Page</title>
-  </head>
-  <body>
-    <div class="product">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=v, initial-scale=1.0">
+  <title>Document</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>/* CSS code to hide the user information and logout button by default */
+/* Ẩn thông tin người dùng và nút logout ban đầu */
+/* CSS cho nút */
+#info {
+  background-color: #b8c5cd;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm shadow */
+}
+
+#info .user-info, #info #logoutBtn {
+  opacity: 0;
+  transform: translateY(-500px);
+  transition: all 0.3s ease;
+}
+
+
+#info:hover .user-info, #info:hover #logoutBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  background-color: #d3600e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm shadow vào nút */
+}
+
+button:hover {
+  background-color: #e74c3c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tăng shadow khi hover */
+}
+
+
+
+
+  </style>
+<body>
+  <div id="info"> 
+      
+    
+    <div class="user-info">
+      <!-- User information goes here -->
+      Hi Vinh
+    </div>
+    <button id="logoutBtn">Logout</button>
+  </div>
   
-      <button id="addToCartBtn">Add to Cart</button>
-    </div>
 
-    <div class="cart">
-      <h2>Shopping Cart</h2>
-      <ul id="cartItems"></ul>
-    </div>
 
-    <script>
-      // Lấy các phần tử từ HTML
-      const addToCartBtn = document.getElementById("addToCartBtn");
-      const cartItemsList = document.getElementById("cartItems");
-
-      // Mảng chứa các sản phẩm trong giỏ hàng
-      let cartItems = [];
-
-      // Hàm để thêm sản phẩm vào giỏ hàng
-      function addToCart() {
-        // Tạo một sản phẩm giả
-        const product = {
-          name: "Product Ne",
-          price: 99.99,
-        };
-
-        // Thêm sản phẩm vào mảng giỏ hàng
-        cartItems.push(product);
-
-        // Hiển thị sản phẩm trong giỏ hàng
-        renderCartItems();
-      }
-
-      // Hàm để hiển thị sản phẩm trong giỏ hàng
-      function renderCartItems() {
-        // Xóa nội dung cũ trong giỏ hàng
-        cartItemsList.innerHTML = "";
-
-        // Hiển thị từng sản phẩm trong giỏ hàng
-        cartItems.forEach((item) => {
-          const li = document.createElement("li");
-          li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-          cartItemsList.appendChild(li);
-        });
-      }
-
-      // Gắn sự kiện nhấn nút "Add to Cart"
-      addToCartBtn.addEventListener("click", addToCart);
-    </script>
-  </body>
+</body>
 </html>
+

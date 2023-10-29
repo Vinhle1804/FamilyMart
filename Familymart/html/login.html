@@ -77,7 +77,7 @@ a {
 
     </style>
 </head>
-<body>
+<body onload="CheckLogin()">
     <div class="container" >
         <form class="register-form" onsubmit="return login()">
             <h1>Đăng nhập</h1>
@@ -100,7 +100,7 @@ a {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
             let arrEmail = [];
-            let arrPass = [];
+            let arrPass = []; 
 
             for (let i = 0; i < userData.length; i++){
                 arrEmail.push(userData[i].email);
@@ -113,6 +113,7 @@ a {
                 if(arrPass[index]== password){
                     alert('đăng nhập thành công')
                     window.location.href='index.html';
+                    localStorage.setItem("userInfor",JSON.stringify(userData[index]))
                 } else {
                     alert('sai mật khẩu')
                 }
@@ -122,6 +123,9 @@ a {
             return false;
         }
          
+    </script>
+    <script src="../js/index.js">
+
     </script>
 </body>
 </html>

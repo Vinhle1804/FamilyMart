@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         /* Thiết lập font chung cho trang web */
         body {
@@ -12,6 +13,7 @@
             padding: 0;
             background-color: #fff; /* Màu nền của trang */
             color: #333; /* Màu chữ chung */
+            background-image: url("../image/carasou.png");
         }
 
         /* Giỏ hàng */
@@ -28,7 +30,7 @@
         }
 
         .cartlist th {
-            background-color: #f2f2f2;
+            background-color: #ff5722;
         }
 
         .cartlist img {
@@ -68,21 +70,14 @@
             <tr>
                 <th>STT</th>
                 <th>Ảnh sản phẩm</th>
-                <th>Tên sản phẩm</th> <!-- Thêm cột tên sản phẩm -->
+                <th>Tên sản phẩm</th> 
                 <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Tổng</th>
             </tr>
         </thead>
         <tbody id="cartlist">
-            <tr>
-                <td>1</td>
-                <td><img src="product1.jpg" alt="Product 1"></td>
-                <td>Product 1</td> <!-- Thêm tên sản phẩm -->
-                <td>$20.00</td>
-                <td><input type="number" class="quantity" value="1"></td>
-                <td>$20.00</td>
-            </tr>
+      
         </tbody>
         <tfoot>
             <tr>

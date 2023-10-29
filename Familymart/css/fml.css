@@ -52,6 +52,9 @@ li a {
   padding: 30px;
 }
 
+
+
+
 .newproducts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
